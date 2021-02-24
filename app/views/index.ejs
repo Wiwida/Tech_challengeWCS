@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+        <!-- Main section -->
+        <main>
+            <!-- New member form -->
+            <h2>Ajouter un(e) Argonaute</h2>
+            <form class="new-member-form" method="POST">
+                <label for="name">Nom de l&apos;Argonaute</label>
+                <input id="name" name="nameMember" type="text" placeholder="Charalampos" />
+                <label for="quality">Qualité de l&apos;Argonaute</label>
+                <input id="quality" name="qualityMember" type="text" placeholder="Nager dans un lac" />
+                <label for="hobbie">Hobbie de l&apos;Argonaute</label>
+                <input id="hobbie" name="hobbieMember" type="text" placeholder="Vaillant" /><br>
+                <button type="submit">Envoyer</button>
+            </form>
+            
+            <!-- Member list -->
+            <h2>Membres de l'équipage</h2>
+
+            <table class="main__container__members">
+                <tbody>
+                    <tr class="thead__head">
+                        <th>Nom</th>
+                        <th>Qualité</th>
+                        <th>Hobbie</th>
+                    </tr>
+                    <% for (const member of allMembers) { %>
+                        <tr class="member-list">
+                            <td class="member-name"><%= member.name %></td>
+                            <td class="member-quality"><%= member.quality %></td>
+                            <td class="member-hobbie"><%= member.hobbie %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+    
+<%- include('partials/footer') %>
